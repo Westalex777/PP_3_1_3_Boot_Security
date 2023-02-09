@@ -20,16 +20,6 @@ public class RoleServiceImpl implements RoleService {
 
     @Transactional(readOnly = true)
     @Override
-    public Role getRole(int id) {
-        Optional<Role> role = roleRepository.findById(id);
-        if (role.isEmpty()) {
-            throw new NullPointerException("Role not found!");
-        }
-        return role.get();
-    }
-
-    @Transactional(readOnly = true)
-    @Override
     public List<Role> getAllRoles() {
         return roleRepository.findAll();
     }
