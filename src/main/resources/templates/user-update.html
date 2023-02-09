@@ -54,7 +54,7 @@
     <tr>
       <td align="right">Role</td>
       <td>
-        <select multiple th:field="*{rolesId}">
+        <select multiple th:field="*{roles}">
           <option th:each="role : ${roles}"
                   th:value="${role.id}"
                   th:text="${role.getNameNotPrefix()}">

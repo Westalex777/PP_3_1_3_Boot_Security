@@ -42,8 +42,6 @@ public class User implements UserDetails {
             , inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    transient private List<Integer> rolesId;
-
     public User() {
         roles = new HashSet<>();
     }
@@ -60,18 +58,6 @@ public class User implements UserDetails {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    private void setRolesId() {
-        roles.stream().map(Role::getId).forEach(x -> rolesId.add(x));
-    }
-
-    public List<Integer> getRolesId() {
-        return rolesId;
-    }
-
-    public void setRolesId(List<Integer> rolesId) {
-        this.rolesId = rolesId;
     }
 
     public void setRole(Role role) {

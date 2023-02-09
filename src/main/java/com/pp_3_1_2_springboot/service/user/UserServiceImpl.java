@@ -29,7 +29,6 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void saveUser(User user) {
-        setRoles(user);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.saveUser(user);
     }
@@ -49,7 +48,6 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void updateUser(User user) {
-        setRoles(user);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.updateUser(user);
     }
@@ -58,12 +56,5 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(int id) {
         return userDao.getUser(id);
-    }
-
-    @Override
-    public void setRoles(User user) {
-        user.getRolesId().stream()
-                .map(roleService::getRole)
-                .forEach(user::setRole);
     }
 }

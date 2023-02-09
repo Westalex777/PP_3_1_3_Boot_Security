@@ -51,12 +51,12 @@
                 <td align="center" th:text="${user.email}"></td>
                 <td align="center" th:text="${user.getRolesToString()}"></td>
                 <td>
-                    <a th:href="@{'admin/updateUserForm/?id=' + ${user.id}}">
+                    <a th:href="@{admin/updateUserForm(id=${user.id})}">
                         <input type="button" value="Edit"/>
                     </a>
                 </td>
                 <td>
-                    <a th:href="@{'admin/deleteUser/?id=' + ${user.id}}">
+                    <a th:href="@{admin/deleteUser/(id=${user.id})}">
                         <input type="button" value="Delete"/>
                     </a>
                 </td>

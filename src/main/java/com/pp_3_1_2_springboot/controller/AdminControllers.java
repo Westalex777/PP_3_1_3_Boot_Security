@@ -54,7 +54,7 @@ public class AdminControllers {
         return "user-update";
     }
 
-    @PostMapping("updateUserForm/updateUser")
+    @PostMapping("updateUser")
     public String updateUser(@ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/";
